@@ -1,0 +1,72 @@
+/* bai 1 */
+/* base styles */
+.navbar {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .navbar h1 {
+    color: #f1356d;
+  }
+  .navbar .links {
+    margin-left: auto;
+  }
+  .navbar a {
+    font-size: 20px;
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
+  }
+  .navbar a:hover {
+    color: #f1356d;
+  }
+  .content {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  /* add new student */
+  .add-data {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .add-data label {
+    text-align: left;
+    display: block;
+  }
+  .add-data h2 {
+    font-size: 20px;
+    color: #f1356d;
+    margin-bottom: 30px;
+  }
+  .add-data input {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+  }
+  .add-data button {
+    background: #f1356d;
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  /* list student */
+  
+  .list-data button {
+    background: #f1356d;
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+  }

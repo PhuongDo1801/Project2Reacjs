@@ -27,14 +27,14 @@ function FormRow() {
   );
 }
 
-export default function NestedGrid() {
+export default function ImageList() {
   return (
-    <Box sx={{ flexGrow: 1, borderRadius: '5px', borderColor: 'primary.main', }}>
-      <Grid container spacing={1} sx = {{borderRadius: '1px', borderColor: 'primary.main'}}>
-        <Grid container item spacing={1}>
+    <Box mx={'auto'} my={20} sx={{ flexGrow: 1, borderRadius: '5px', width: 1000, border: '5px solid grey', }}>
+      <Grid container spacing={1} p={1} sx = {{borderRadius: '1px', borderColor: 'primary.main'}}>
+        <Grid container item spacing={1} px={'auto'} py={'auto'}>
           <FormRow />
         </Grid>
-        <Grid container item spacing={1}>
+        <Grid container item spacing={1} px={'auto'} py={'auto'}>
           <FormRow />
         </Grid>
         {/* <Grid container item spacing={1}>
