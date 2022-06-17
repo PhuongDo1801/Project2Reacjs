@@ -1,0 +1,46 @@
+{
+  "students": [
+    {
+      "mssv": "20194141",
+      "name": "Do Dang Phuong",
+      "dob": "2001-01-18",
+      "email": "phuong.dd194141@sis.hust.edu.vn",
+      "id": 1
+    },
+    {
+      "mssv": "20194141",
+      "name": "Do Dang Phuong",
+      "dob": "2001-01-18",
+      "email": "phuong.dd194141@sis.hust.edu.vn",
+      "id": 2
+    },
+    {
+      "mssv": "20194141",
+      "name": "Do Dang Phuong",
+      "dob": "2001-01-18",
+      "email": "phuong.dd194141@sis.hust.edu.vn",
+      "id": 3
+    },
+    {
+      "mssv": "20194141",
+      "name": "Do Dang Phuong",
+      "dob": "2001-01-18",
+      "email": "phuong.dd194141@sis.hust.edu.vn",
+      "id": 4
+    },
+    {
+      "mssv": "20194141",
+      "name": "Do Dang Phuong",
+      "dob": "2001-01-18",
+      "email": "phuong.dd194141@sis.hust.edu.vn",
+      "id": 5
+    },
+    {
+      "mssv": "20194141",
+      "name": "Do Dang Phuong",
+      "dob": "2001-01-18",
+      "email": "phuong.dd194141@sis.hust.edu.vn",
+      "id": 6
+    }
+  ]
+}
