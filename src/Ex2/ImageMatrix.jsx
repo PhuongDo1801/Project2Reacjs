@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import backgroundUrl from "../assets/background.png";
 import Grid from '@mui/material/Grid';
-
+import Box from '@mui/material/Box';
 export default function App() {
 
   const [row, setRow] = useState('')
@@ -30,21 +30,23 @@ export default function App() {
 
   return (
     <div className="image-matrix">
+      <form>
       <label>Row:</label>
       <input  type="text" value={row} onChange={handleOnChangeRow}/>
       <label>Col:</label>
       <input type="text" value={col} onChange={handleOnChangeCol}/>
-      <div>
+      </form>
+      <Box mx = {'auto'} my={2} sx={{ flexGrow: 1, width: 1000 }}>
       {[...Array(row)].map(() => (
         <div style={{ display: "flex" }}>
             {[...Array(col)].map(() => (
-            <Grid item xs={1}>
-              { row && col && <img className='avatar' src={backgroundUrl} alt="" />}
+            <Grid px= {'auto'} item xs={1}>
+              { row && col && <img className='avatar matrix' src={backgroundUrl} alt="" />}
             </Grid>
             ))}
         </div>
         ))}
-      </div> 
-    </div>
+      </Box>
+  </div>
   );
 }

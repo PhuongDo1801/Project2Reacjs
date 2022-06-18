@@ -5,3 +5,15 @@
     /* border: 1px solid red; */
     /* margin-top: auto; */
   }
+
+  .image-matrix{
+    width: 100%;
+    /* text-align: center; */
+  }
+  .image-matrix form {
+    margin: auto 40%;
+    width: 20%;
+  }
+  .image-matrix input, label {
+    display: block;
+  }

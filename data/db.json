@@ -8,18 +8,18 @@
       "id": 1
     },
     {
-      "mssv": "20194142",
-      "name": "Nguyễn Văn An",
-      "dob": "2001-01-02",
-      "email": "an@gmail.com",
-      "id": 2
-    },
-    {
       "mssv": "20194242",
       "name": "Trần Thị Cin",
       "dob": "2001-01-13",
       "email": "cin@gmail.com",
       "id": 3
+    },
+    {
+      "mssv": "20193122",
+      "name": "Lê Văn Dou",
+      "dob": "2001-02-02",
+      "email": "dou@gmail.com",
+      "id": 4
     }
   ]
 }
