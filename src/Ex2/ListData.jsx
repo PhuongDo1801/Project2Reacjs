@@ -8,7 +8,6 @@ import TableRow from '@mui/material/TableRow';
 // import Paper from '@mui/material/Paper';
 
 const ListData = ({ students }) => {
-  // const history = useHistory();
   return (
     <div className='list-data'>
       <div style={{display: "flex", justifyContent: "center"}}>
@@ -26,9 +25,9 @@ const ListData = ({ students }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {students.map((student)=>(
+              {students.map((student, index)=>(
                 <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                  <TableCell align="right">{student.id}</TableCell>
+                  <TableCell align="right">{index + 1}</TableCell>
                   <TableCell align="right">{student.mssv}</TableCell>
                   <TableCell align="right">{student.name}</TableCell>
                   <TableCell align="right">{student.dob}</TableCell>

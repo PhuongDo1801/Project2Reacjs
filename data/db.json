@@ -8,32 +8,18 @@
       "id": 1
     },
     {
-      "mssv": "20194141",
-      "name": "Do Dang Phuong",
-      "dob": "2001-01-18",
-      "email": "phuong.dd194141@sis.hust.edu.vn",
+      "mssv": "20194142",
+      "name": "Nguyễn Văn An",
+      "dob": "2001-01-02",
+      "email": "an@gmail.com",
       "id": 2
     },
     {
-      "mssv": "20194141",
-      "name": "Do Dang Phuong",
-      "dob": "2001-01-18",
-      "email": "phuong.dd194141@sis.hust.edu.vn",
-      "id": 3
-    },
-    {
-      "mssv": "20194141",
-      "name": "Do Dang Phuong",
-      "dob": "2001-01-18",
-      "email": "phuong.dd194141@sis.hust.edu.vn",
-      "id": 4
-    },
-    {
       "mssv": "20194242",
-      "name": "Kei Karuizawa",
-      "dob": "2001-03-08",
-      "email": "kei@gmail.com",
-      "id": 5
+      "name": "Trần Thị Cin",
+      "dob": "2001-01-13",
+      "email": "cin@gmail.com",
+      "id": 3
     }
   ]
 }
