@@ -3,23 +3,31 @@ import "./App.css";
 // import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { useMemo } from "react";
-// import backgroundUrl from '../assets/background.png';
+import diamond from '../assets/diamond.png';
+import mario from '../assets/mario.png';
 
-
+const Normal = {
+    type: 0,
+    color: "white",
+    url: ""
+};
 const Block = {
     type: 1,
-    color: "blue"
+    color: "blue",
+    url: ""
 };
 const Diamond = {
     type: 2,
-    color: "red"
+    color: "",
+    url: diamond
 };
-const Normal = {
-    type: 0,
-    color: "white"
-};
+const Mario = {
+    type: 3,
+    color: "",
+    url: mario
+}
 
-const getSquares = (width,height,blocks, diamonds)=>{
+const getSquares = (width,height,blocks, diamonds, marios)=>{
     const squares = [];
     for(let i = 0 ; i < width ; ++i){
         let row = [];
@@ -35,7 +43,9 @@ const getSquares = (width,height,blocks, diamonds)=>{
     for(const diamond of diamonds){
         squares[diamond.x][diamond.y] = Diamond;
     }
-
+    for(const mario of marios){
+        squares[mario.x][mario.y] = Mario;
+    }
     return squares;
 }
 
@@ -48,9 +58,14 @@ const BLOCK_INIT = [
 const DINAMON_INIT = [
     {x: 0, y: 4}
 ]
+
+const MARIO_INIT = [
+    {x: 7, y: 0 }
+]
+    
 export default function App() {
    const squares = useMemo(()=>{
-        return getSquares(8,6,BLOCK_INIT, DINAMON_INIT)
+        return getSquares(8,6,BLOCK_INIT, DINAMON_INIT, MARIO_INIT)
    },[])
     
     return (
@@ -69,9 +84,9 @@ export default function App() {
                                     height: 70,
                                     backgroundColor: item.color
                                     }}>
-                                    {/* <img className='avatar matrix' src={backgroundUrl} alt="" /> */}
+                                    <img src={item.url} onerror="this.style.display='none'" alt="" className="item-img"/>
                                 </Box>
-                            ))}
+                            ))} 
                         </div>
                     ))
                 }
