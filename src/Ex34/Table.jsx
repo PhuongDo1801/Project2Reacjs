@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 // import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -43,9 +43,9 @@ const getSquares = (width,height,blocks, diamonds, marios)=>{
     for(const diamond of diamonds){
         squares[diamond.x][diamond.y] = Diamond;
     }
-    for(const mario of marios){
-        squares[mario.x][mario.y] = Mario;
-    }
+
+    squares[marios.x][marios.y] = Mario;
+
     return squares;
 }
 
@@ -59,21 +59,29 @@ const DINAMON_INIT = [
     {x: 0, y: 4}
 ]
 
-const MARIO_INIT = [
-    {x: 7, y: 0 }
-]
+const MARIO_INIT = {x: 7, y: 0 }
+
     
 export default function App() {
-   const squares = useMemo(()=>{
+    const squares = useMemo(()=>{
         return getSquares(8,6,BLOCK_INIT, DINAMON_INIT, MARIO_INIT)
-   },[])
-    
+    },[])
+    const [move, setMove] = useState({});
+    const [control, setControl] = useState('');
+    const moveMario = (e) => {
+        if(control === "Up"){
+            setMove((move) => {move.x = move.x-1})
+        }
+        if(control === "Down"){
+            setMove((move) => {move.x = move.x+1})
+        }
+    }
     return (
         <div className="container">
             <div className="box">
             <Box my={2} mx={2} sx={{width: 420, height: 560}}>
                 {
-                    squares.map((square, index) =>(
+                    squares.map((square, index) =>( 
                         <div key={index} style={{display: "flex" }}>
                             {square.map((item, index) => (
                                 <Box 
@@ -84,7 +92,7 @@ export default function App() {
                                     height: 70,
                                     backgroundColor: item.color
                                     }}>
-                                    <img src={item.url} onerror="this.style.display='none'" alt="" className="item-img"/>
+                                    { item.url && <img src={item.url} onerror="this.style.display='none'" alt="" className="item-img"/>}
                                 </Box>
                             ))} 
                         </div>
@@ -94,8 +102,8 @@ export default function App() {
             </div>
             <div className="box">
                 <Box my={2} mx={'auto'} sx={{ width: 420, height: 560}}>
-                    <form action="">
-                        <input type="text" />
+                    <form onSubmit={moveMario}>
+                        <input type="text" value={control} onChange={(e) => setControl(e.target.value)}/>
                         <button className="btn">Add action</button>
                     </form>
                 </Box>
