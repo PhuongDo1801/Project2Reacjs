@@ -63,17 +63,18 @@ const MARIO_INIT = {x: 7, y: 0 }
 
     
 export default function App() {
-    const squares = useMemo(()=>{
-        return getSquares(8,6,BLOCK_INIT, DINAMON_INIT, MARIO_INIT)
-    },[])
-    const [move, setMove] = useState({});
+    const [move, setMove] = useState(MARIO_INIT);
     const [control, setControl] = useState('');
+    const squares = useMemo(()=>{
+        return getSquares(8,6,BLOCK_INIT, DINAMON_INIT, move)
+    },[])
+
     const moveMario = (e) => {
         if(control === "Up"){
-            setMove((move) => {move.x = move.x-1})
+            setMove((move) => {move.y = move.y-1})
         }
         if(control === "Down"){
-            setMove((move) => {move.x = move.x+1})
+            setMove((move) => {move.y = move.y+1})
         }
     }
     return (
