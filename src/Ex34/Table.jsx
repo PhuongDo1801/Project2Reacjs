@@ -67,14 +67,20 @@ export default function App() {
     const [control, setControl] = useState('');
     const squares = useMemo(()=>{
         return getSquares(8,6,BLOCK_INIT, DINAMON_INIT, move)
-    },[])
+    },[move])
 
     const moveMario = (e) => {
         if(control === "Up"){
-            setMove((move) => {move.y = move.y-1})
+            setMove({
+                ...move,
+                x : move.x-1
+            })
         }
         if(control === "Down"){
-            setMove((move) => {move.y = move.y+1})
+            setMove({
+                ...move,
+                x: move.x+1
+            })
         }
     }
     return (
@@ -103,10 +109,10 @@ export default function App() {
             </div>
             <div className="box">
                 <Box my={2} mx={'auto'} sx={{ width: 420, height: 560}}>
-                    <form onSubmit={moveMario}>
+                    <div>
                         <input type="text" value={control} onChange={(e) => setControl(e.target.value)}/>
-                        <button className="btn">Add action</button>
-                    </form>
+                        <button className="btn" onClick={moveMario}>Add action</button>
+                    </div>
                 </Box>
             </div>
         </div>
