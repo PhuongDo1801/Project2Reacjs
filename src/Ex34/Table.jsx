@@ -49,13 +49,45 @@ const getSquares = (width,height,blocks, diamonds, marios)=>{
     return squares;
 }
 
+const checkup = (mario, blocks) => {
+    for(const block of blocks){
+       if(block.x === mario.x - 1 && block.y === mario.y){
+            return false;
+       }
+    }
+    return true;
+}
+const checkdown = (mario, blocks) => {
+    for(const block of blocks){
+       if(block.x === mario.x + 1  && block.y === mario.y){
+            return false;
+       }
+    }
+    return true;
+}
+const checkleft = (mario, blocks) => {
+    for(const block of blocks){
+       if(block.x === mario.x && block.y === mario.y - 1){
+            return false;
+       }
+    }
+    return true;
+}
+const checkright = (mario, blocks) => {
+    for(const block of blocks){
+       if(block.x === mario.x && block.y === mario.y + 1){
+            return false;
+       }
+    }
+    return true;
+}
 const BLOCK_INIT = [
     {x: 1, y: 3},{x: 1, y: 4},{x: 1, y: 5},
     {x: 3, y: 1},{x: 3, y: 2},{x: 3, y: 3},{x: 3, y: 0},
     {x: 5, y: 2},{x: 5, y: 3},{x: 5, y: 4},{x: 5, y: 5}
 ]
 
-const DINAMON_INIT = [
+const DIAMOND_INIT = [
     {x: 0, y: 4}
 ]
 
@@ -66,22 +98,42 @@ export default function App() {
     const [move, setMove] = useState(MARIO_INIT);
     const [control, setControl] = useState('');
     const squares = useMemo(()=>{
-        return getSquares(8,6,BLOCK_INIT, DINAMON_INIT, move)
+        return getSquares(8,6,BLOCK_INIT, DIAMOND_INIT, move)
     },[move])
 
     const moveMario = (e) => {
-        if(control === "Up"){
+        if(control === "Up" && move.x !== 0 && checkup(move, BLOCK_INIT)){
             setMove({
                 ...move,
                 x : move.x-1
             })
         }
-        if(control === "Down"){
+        if(control === "Down" && move.x !== 7 && checkdown(move, BLOCK_INIT)){
             setMove({
                 ...move,
                 x: move.x+1
             })
         }
+        if(control === "Left" && move.y !== 0 && checkleft(move, BLOCK_INIT)){
+            setMove({
+                ...move,
+                y: move.y-1
+            })
+        }
+        if(control === "Right" && move.y !== 5 && checkright(move, BLOCK_INIT)){
+            setMove({
+                ...move,
+                y: move.y+1
+            })
+        }
+    }
+    const done = () => {
+        if(move.x === 0 && move.y === 4){
+            alert("Chúc mừng bạn!");
+            move.x = 7;
+            move.y = 0;
+        }
+
     }
     return (
         <div className="container">
@@ -115,6 +167,7 @@ export default function App() {
                     </div>
                 </Box>
             </div>
+            {done()}
         </div>
     )
 }   
