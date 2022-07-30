@@ -135,6 +135,67 @@ export default function App() {
         }
 
     }
+
+    const moveUp = () => {
+        if(move.x !== 0 && checkup(move, BLOCK_INIT)){
+            setMove({
+                ...move,
+                x : move.x-1
+            })
+        }
+    }
+    const moveDown = () => {
+        if(move.x !== 7 && checkdown(move, BLOCK_INIT)){
+            setMove({
+                ...move,
+                x: move.x+1
+            })
+        }
+    }
+    const moveLeft = () => {
+        if(move.y !== 0 && checkleft(move, BLOCK_INIT)){
+            setMove({
+                ...move,
+                y: move.y-1
+            })
+        }
+    }
+    const moveRight = () => {
+        if(move.y !== 5 && checkright(move, BLOCK_INIT)){
+            setMove({
+                ...move,
+                y: move.y+1
+            })
+        }
+    }
+
+
+    const moveByKey = (event) => {
+        if(event.key === "ArrowUp" && move.x !== 0 && checkup(move, BLOCK_INIT)){
+            setMove({
+                ...move,
+                x : move.x-1
+            })
+        }
+        if(event.key === "ArrowDown" && move.x !== 7 && checkdown(move, BLOCK_INIT)){
+            setMove({
+                ...move,
+                x: move.x+1
+            })
+        }
+        if(event.key === "ArrowLeft" && move.y !== 0 && checkleft(move, BLOCK_INIT)){
+            setMove({
+                ...move,
+                y: move.y-1
+            })
+        }
+        if(event.key === "ArrowRight" && move.y !== 5 && checkright(move, BLOCK_INIT)){
+            setMove({
+                ...move,
+                y: move.y+1
+            })
+        }
+    }
     return (
         <div className="container">
             <div className="box">
@@ -161,12 +222,20 @@ export default function App() {
             </div>
             <div className="box">
                 <Box my={2} mx={'auto'} sx={{ width: 420, height: 560}}>
-                    <div>
+                    <div className="handle-input">
                         <input type="text" value={control} onChange={(e) => setControl(e.target.value)}/>
                         <button className="btn" onClick={moveMario}>Add action</button>
                     </div>
+                    <div className="btn-input">
+                        <button className="btn btn-up" onClick={moveUp}>Up</button>
+                        <button className="btn btn-left" onClick={moveLeft}>Left</button>
+                        <button className="btn btn-right" onClick={moveRight}>Right</button>
+                        <button className="btn btn-down" onClick={moveDown}>Down</button>
+                    </div>
+                    {/* <input type="text" id="one" onKeyPress={this.moveByKey} /> */}
                 </Box>
             </div>
+            {/* {moveByKey()} */}
             {done()}
         </div>
     )
