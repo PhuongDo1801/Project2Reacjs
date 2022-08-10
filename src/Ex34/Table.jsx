@@ -169,33 +169,32 @@ export default function App() {
         }
     }
 
-
-    const moveByKey = (event) => {
-        if(event.key === "ArrowUp" && move.x !== 0 && checkup(move, BLOCK_INIT)){
-            setMove({
-                ...move,
-                x : move.x-1
-            })
-        }
-        if(event.key === "ArrowDown" && move.x !== 7 && checkdown(move, BLOCK_INIT)){
-            setMove({
-                ...move,
-                x: move.x+1
-            })
-        }
-        if(event.key === "ArrowLeft" && move.y !== 0 && checkleft(move, BLOCK_INIT)){
-            setMove({
-                ...move,
-                y: move.y-1
-            })
-        }
-        if(event.key === "ArrowRight" && move.y !== 5 && checkright(move, BLOCK_INIT)){
-            setMove({
-                ...move,
-                y: move.y+1
-            })
-        }
-    }
+    // const moveByKey = (event) => {
+    //     if(event.key === "ArrowUp" && move.x !== 0 && checkup(move, BLOCK_INIT)){
+    //         setMove({
+    //             ...move,
+    //             x : move.x-1
+    //         })
+    //     }
+    //     if(event.key === "ArrowDown" && move.x !== 7 && checkdown(move, BLOCK_INIT)){
+    //         setMove({
+    //             ...move,
+    //             x: move.x+1
+    //         })
+    //     }
+    //     if(event.key === "ArrowLeft" && move.y !== 0 && checkleft(move, BLOCK_INIT)){
+    //         setMove({
+    //             ...move,
+    //             y: move.y-1
+    //         })
+    //     }
+    //     if(event.key === "ArrowRight" && move.y !== 5 && checkright(move, BLOCK_INIT)){
+    //         setMove({
+    //             ...move,
+    //             y: move.y+1
+    //         })
+    //     }
+    // }
     return (
         <div className="container">
             <div className="box">
@@ -223,7 +222,7 @@ export default function App() {
             <div className="box">
                 <Box my={2} mx={'auto'} sx={{ width: 420, height: 560}}>
                     <div className="handle-input">
-                        <input type="text" value={control} onChange={(e) => setControl(e.target.value)}/>
+                        <input type="text" value={control} onChange={(e) => setControl(e.target.value)} placeholder="Up/Down/Left/Right"/>
                         <button className="btn" onClick={moveMario}>Add action</button>
                     </div>
                     <div className="btn-input">
